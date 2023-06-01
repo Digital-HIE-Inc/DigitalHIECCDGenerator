@@ -1,0 +1,31 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+    <persistence-unit name="Patient" transaction-type="RESOURCE_LOCAL">
+        <!-- Persistence provider -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <!-- Entity classes -->
+        <class>com.digitalhie.datagenerator.ccd.entity.Patient</class>
+        <class>com.digitalhie.datagenerator.ccd.entity.CCDDevice</class>
+        <class>com.digitalhie.datagenerator.ccd.entity.CCDDiagnosis</class>
+        <class>com.digitalhie.datagenerator.ccd.entity.CCDIntervention</class>
+        <class>com.digitalhie.datagenerator.ccd.entity.CCDObservations</class>
+        <class>com.digitalhie.datagenerator.ccd.entity.CCDProcedures</class>          
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url"    value="jdbc:mysql://localhost:3306/inovalon" />
+            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password" value="EsacAdmin99$" />
+            <!-- <property name="javax.persistence.schema-generation.database.action" value="update"/>-->
+            <!-- org.hibernate.dialect.MySQL5Dialect -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+			<property name="hibernate.connection.autocommit" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="show_sql" value="true"/>
+            <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
